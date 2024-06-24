@@ -13,7 +13,7 @@ const AccountCardGrid = () => {
   if (isLoading) return <div>loading...</div>;
 
   return (
-    <div className="grid-cols-4">
+    <div className="grid grid-cols-4 gap-4">
       {data.map((account: Account) => (
         <AccountCard key={account.id} account={account} />
       ))}

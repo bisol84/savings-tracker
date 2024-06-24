@@ -13,13 +13,13 @@ const AccountCard = ({ account }: AccountCardProps) => {
     <Card>
       <CardHeader>
         <CardTitle>{account.name}</CardTitle>
-        <CardDescription>Card Description</CardDescription>
+        <CardDescription>{account.type}</CardDescription>
       </CardHeader>
       <CardContent>
-        <p>Card Content</p>
+        <p>{account.initialBalance}</p>
       </CardContent>
       <CardFooter>
-        <p>Card Footer</p>
+        <p>{account.createdAt.toString()}</p>
       </CardFooter>
     </Card>
   );
