@@ -16,11 +16,12 @@ const AccountCard = ({ account }: AccountCardProps) => {
         <CardDescription>{account.type}</CardDescription>
       </CardHeader>
       <CardContent>
-        <p className="text-xl">{account.initialBalance} CHF</p>
+        <div className="flex justify-between">
+          <div className="font-bold">{account.createdAt.toString()}</div>
+          <div>{account.initialBalance} CHF</div>
+        </div>
       </CardContent>
-      <CardFooter>
-        <p>{account.createdAt.toString()}</p>
-      </CardFooter>
+      <CardFooter></CardFooter>
     </Card>
   );
 };
