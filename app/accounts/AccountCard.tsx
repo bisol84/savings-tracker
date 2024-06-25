@@ -16,7 +16,7 @@ const AccountCard = ({ account }: AccountCardProps) => {
         <CardDescription>{account.type}</CardDescription>
       </CardHeader>
       <CardContent>
-        <p>{account.initialBalance}</p>
+        <p className="text-xl">{account.initialBalance} CHF</p>
       </CardContent>
       <CardFooter>
         <p>{account.createdAt.toString()}</p>
