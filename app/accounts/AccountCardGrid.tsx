@@ -2,6 +2,7 @@
 
 import { Account } from "@/types/accountInterfaces";
 import AccountCard from "./AccountCard";
+import AccountAddCard from "./AccountAddCard";
 import useSWR from "swr";
 
 const AccountCardGrid = () => {
@@ -17,6 +18,7 @@ const AccountCardGrid = () => {
       {data.map((account: Account) => (
         <AccountCard key={account.id} account={account} />
       ))}
+      <AccountAddCard />
     </div>
   );
 };
