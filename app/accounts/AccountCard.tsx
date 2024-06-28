@@ -7,6 +7,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { AccountCardProps } from "@/types/accountInterfaces";
+import AccountTransactionsHistory from "./AccountTransactionsHistory";
 
 const AccountCard = ({ account }: AccountCardProps) => {
   return (
@@ -16,12 +17,14 @@ const AccountCard = ({ account }: AccountCardProps) => {
         <CardDescription>{account.type}</CardDescription>
       </CardHeader>
       <CardContent>
-        <div className="flex justify-between">
+        <AccountTransactionsHistory accountID={account.id} />
+      </CardContent>
+      <CardFooter>
+        <div className="flex justify-between w-full">
           <div className="font-bold">{account.createdAt.toString()}</div>
           <div>{account.initialBalance} CHF</div>
         </div>
-      </CardContent>
-      <CardFooter></CardFooter>
+      </CardFooter>
     </Card>
   );
 };

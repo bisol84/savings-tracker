@@ -3,9 +3,9 @@ import AccountCardGrid from "./AccountCardGrid";
 
 const page = () => {
   return (
-    <div>
+    <section>
       <AccountCardGrid />
-    </div>
+    </section>
   );
 };
 

@@ -13,7 +13,7 @@ const AccountAddCard = () => {
     <Card>
       <CardContent>
         <div className="flex items-center justify-center h-44">
-          <MdAddCircleOutline />
+          <MdAddCircleOutline size={30} />
         </div>
       </CardContent>
     </Card>

@@ -11,3 +11,7 @@ export interface Account {
   status: boolean;
   initialBalance: number;
 }
+
+export interface AccountTransactionsProps {
+  accountID: number;
+}
