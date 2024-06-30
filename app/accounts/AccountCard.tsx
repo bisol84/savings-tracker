@@ -6,8 +6,10 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { AccountCardProps } from "@/types/accountInterfaces";
 import AccountTransactionsHistory from "./AccountTransactionsHistory";
+import Link from "next/link";
 
 const AccountCard = ({ account }: AccountCardProps) => {
   return (
@@ -19,10 +21,23 @@ const AccountCard = ({ account }: AccountCardProps) => {
       <CardContent>
         <AccountTransactionsHistory accountID={account.id} />
       </CardContent>
-      <CardFooter>
+      <CardFooter className="flex flex-col w-full">
         <div className="flex justify-between w-full">
           <div className="font-bold">{account.createdAt.toString()}</div>
           <div>{account.initialBalance} CHF</div>
+        </div>
+        <div className="flex justify-between w-full">
+          <div className="font-bold">{account.updatedAt.toString()}</div>
+          <div>{account.actualBalance} CHF</div>
+        </div>
+        <div className="flex w-full gap-3 justify-between my-3">
+          <Button variant="outline" className="w-1/3">
+            Ajouter
+          </Button>
+          <Link href={`/account/modify/${account.id}`} className="w-full">
+            <Button variant="outline">Modifier</Button>
+          </Link>
+          <Button className="w-1/3 bg-red-600">Supprimer</Button>
         </div>
       </CardFooter>
     </Card>

@@ -1,9 +1,9 @@
-import AccountCardGrid from "./AccountCardGrid";
+import TransactionAddForm from "./TransactionAddForm";
 
 const page = () => {
   return (
     <section className="p-3">
-      <AccountCardGrid />
+      <TransactionAddForm />
     </section>
   );
 };

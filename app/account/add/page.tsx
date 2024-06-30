@@ -1,9 +1,9 @@
-import AccountCardGrid from "./AccountCardGrid";
+import AccountAddForm from "./AccountAddForm";
 
 const page = () => {
   return (
     <section className="p-3">
-      <AccountCardGrid />
+      <AccountAddForm />
     </section>
   );
 };

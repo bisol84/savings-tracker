@@ -2,11 +2,12 @@
 CREATE TABLE "Account" (
     "id" SERIAL NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "updatedAt" TIMESTAMP(3) NOT NULL,
+    "updatedAt" TIMESTAMP(3),
     "name" TEXT NOT NULL,
     "type" TEXT NOT NULL,
     "status" BOOLEAN NOT NULL,
     "initialBalance" DOUBLE PRECISION NOT NULL,
+    "actualBalance" DOUBLE PRECISION,
 
     CONSTRAINT "Account_pkey" PRIMARY KEY ("id")
 );

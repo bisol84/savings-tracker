@@ -2,6 +2,10 @@ export interface AccountCardProps {
   account: Account;
 }
 
+export interface AccountModifyProps {
+  account: Account[];
+}
+
 export interface Account {
   id: number;
   createdAt: Date;
@@ -10,6 +14,7 @@ export interface Account {
   type: string;
   status: boolean;
   initialBalance: number;
+  actualBalance: number;
 }
 
 export interface AccountTransactionsProps {

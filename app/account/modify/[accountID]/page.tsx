@@ -1,0 +1,19 @@
+import AccountModifyForm from "./AccountModifyForm";
+
+async function getAccount(accountID: string) {
+  const res = await fetch(process.env.URL + `/api/v1/account/${accountID}`);
+  return res.json();
+}
+
+const page = async ({ params }: { params: { accountID: string } }) => {
+  const accountID = params.accountID;
+  const account = await getAccount(accountID);
+
+  return (
+    <section className="p-3">
+      <AccountModifyForm account={account} />
+    </section>
+  );
+};
+
+export default page;
