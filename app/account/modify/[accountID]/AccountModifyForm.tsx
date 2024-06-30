@@ -7,7 +7,7 @@ const AccountModifyForm = ({ account }: AccountModifyProps) => {
   const accountData = account[0];
 
   return (
-    <form action={"/api/v1/account"} method="PUT">
+    <form action={`/api/v1/account/${accountData.id}`} method="POST">
       <div className="grid w-full max-w-sm items-center gap-3">
         <Label htmlFor="actual_balance">Montant actuel</Label>
         <Input
