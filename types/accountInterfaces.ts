@@ -3,7 +3,7 @@ export interface AccountCardProps {
 }
 
 export interface AccountModifyProps {
-  account: Account[];
+  account: Account;
 }
 
 export interface Account {
