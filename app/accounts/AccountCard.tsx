@@ -34,8 +34,10 @@ const AccountCard = ({ account }: AccountCardProps) => {
           <Button variant="outline" className="w-1/3">
             Ajouter
           </Button>
-          <Link href={`/account/modify/${account.id}`} className="w-full">
-            <Button variant="outline">Modifier</Button>
+          <Link href={`/account/modify/${account.id}`} className="w-1/3">
+            <Button variant="outline" className="w-full">
+              Modifier
+            </Button>
           </Link>
           <Button className="w-1/3 bg-red-600">Supprimer</Button>
         </div>
