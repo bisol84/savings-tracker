@@ -11,9 +11,7 @@ async function getAccount(accountID: string) {
 
 const page = async ({ params }: { params: { accountID: string } }) => {
   const accountID = params.accountID;
-  console.log("Account ID : " + accountID);
   const account = await getAccount(accountID);
-  console.log(account);
 
   return (
     <section className="p-3">

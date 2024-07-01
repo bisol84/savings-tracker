@@ -17,19 +17,19 @@ export async function GET(
   return Response.json(result);
 }
 
-export async function POST(
+export async function PUT(
   req: Request,
   { params }: { params: { accountID: string } }
 ) {
   try {
     const pAccountId = parseInt(params.accountID);
-    const data = await req.formData();
+    const data = await req.json();
     const result = await prisma.account.update({
       where: {
         id: pAccountId,
       },
       data: {
-        actualBalance: Number(data.get("actual_balance")),
+        actualBalance: Number(data.actualBalance),
         updatedAt: new Date(),
       },
     });
