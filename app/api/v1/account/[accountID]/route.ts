@@ -43,3 +43,17 @@ export async function PUT(
     );
   }
 }
+
+export async function DELETE(
+  req: Request,
+  { params }: { params: { accountID: string } }
+) {
+  const pAccountId = parseInt(params.accountID);
+  const result = await prisma.account.delete({
+    where: {
+      id: pAccountId,
+    },
+  });
+
+  return Response.json(result);
+}

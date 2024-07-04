@@ -11,7 +11,13 @@ import { AccountCardProps } from "@/types/accountInterfaces";
 import AccountTransactionsHistory from "./AccountTransactionsHistory";
 import Link from "next/link";
 
-const AccountCard = ({ account }: AccountCardProps) => {
+// const handleDelete = (accountID) => {
+//   fetch(`/api/v1/account/${accountID}`, {
+//     method: "DELETE",
+//   });
+// };
+
+const AccountCard = ({ account, handleDelete }: AccountCardProps) => {
   return (
     <Card>
       <CardHeader>
@@ -39,7 +45,13 @@ const AccountCard = ({ account }: AccountCardProps) => {
               Modifier
             </Button>
           </Link>
-          <Button className="w-1/3 bg-red-600">Supprimer</Button>
+          <Button
+            variant="outline"
+            className="w-1/3 bg-red-500 text-white"
+            onClick={() => handleDelete(account.id)}
+          >
+            Supprimer
+          </Button>
         </div>
       </CardFooter>
     </Card>
