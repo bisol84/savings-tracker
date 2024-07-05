@@ -1,5 +1,6 @@
 export interface AccountCardProps {
   account: Account;
+  handleDelete: (id: number) => Promise<void>;
 }
 
 export interface AccountModifyProps {

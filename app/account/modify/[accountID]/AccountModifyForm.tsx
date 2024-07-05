@@ -5,23 +5,36 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { AccountModifyProps } from "@/types/accountInterfaces";
 import { FormEvent } from "react";
+import { useRouter } from "next/navigation";
 
-const handleForm = (e: FormEvent<HTMLFormElement>) => {
+const handleForm = async (
+  e: FormEvent<HTMLFormElement>,
+  router: ReturnType<typeof useRouter>
+) => {
   e.preventDefault();
   const formData = new FormData(e.currentTarget);
   const actualBalance = formData.get("actual_balance");
 
-  fetch(e.currentTarget.action, {
+  const response = await fetch(e.currentTarget.action, {
     method: "PUT",
     body: JSON.stringify({
       actualBalance,
     }),
   });
+
+  if (response.ok) {
+    router.push("/accounts");
+  }
 };
 
 const AccountModifyForm = ({ account }: AccountModifyProps) => {
+  const router = useRouter();
+
   return (
-    <form action={`/api/v1/account/${account.id}`} onSubmit={handleForm}>
+    <form
+      action={`/api/v1/account/${account.id}`}
+      onSubmit={(e) => handleForm(e, router)}
+    >
       <div className="grid w-full max-w-sm items-center gap-3">
         <Label htmlFor="actual_balance">Montant actuel</Label>
         <Input

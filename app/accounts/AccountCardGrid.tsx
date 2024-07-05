@@ -3,7 +3,7 @@
 import { Account } from "@/types/accountInterfaces";
 import AccountCard from "./AccountCard";
 import AccountAddCard from "./AccountAddCard";
-import useSWR, { mutate } from "swr";
+import useSWR from "swr";
 
 const AccountCardGrid = () => {
   const fetcher = (url: string) => fetch(url).then((res) => res.json());
@@ -13,7 +13,7 @@ const AccountCardGrid = () => {
     fetcher
   );
 
-  const handleDelete = async (id) => {
+  const handleDelete = async (id: number) => {
     await fetch(`/api/v1/account/${id}`, {
       method: "DELETE",
     });
