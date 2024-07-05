@@ -9,21 +9,16 @@ const MonthlyChart = () => {
 
   const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
-  const { data, isLoading, error } = useSWR("/api/v1/accounts", fetcher);
+  const { data, isLoading, error } = useSWR(
+    "/api/v1/dashboard/MonthlyChart",
+    fetcher
+  );
+
+  if (!data) return <div>loading...</div>;
 
   return (
     <div>
-      <Bar
-        data={{
-          labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-          datasets: [
-            {
-              label: "Test 1",
-              data: [12, 19, 3, 5, 2, 3],
-            },
-          ],
-        }}
-      />
+      <Bar data={data} />
     </div>
   );
 };
