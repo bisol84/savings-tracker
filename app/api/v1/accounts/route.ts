@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import prisma from "@/lib/db";
 import dayjs from "dayjs";
+import "dayjs/locale/fr";
 dayjs.locale("fr");
 
 export const dynamic = "force-dynamic";

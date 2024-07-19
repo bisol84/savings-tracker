@@ -11,12 +11,6 @@ import { AccountCardProps } from "@/types/accountInterfaces";
 import AccountTransactionsHistory from "./AccountTransactionsHistory";
 import Link from "next/link";
 
-// const handleDelete = (accountID) => {
-//   fetch(`/api/v1/account/${accountID}`, {
-//     method: "DELETE",
-//   });
-// };
-
 const AccountCard = ({ account, handleDelete }: AccountCardProps) => {
   return (
     <Card>
