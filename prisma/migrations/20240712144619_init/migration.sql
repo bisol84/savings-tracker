@@ -13,6 +13,16 @@ CREATE TABLE "Account" (
 );
 
 -- CreateTable
+CREATE TABLE "AccountHistory" (
+    "id" SERIAL NOT NULL,
+    "idAccount" INTEGER NOT NULL,
+    "updatedAt" TIMESTAMP(3),
+    "actualBalance" DOUBLE PRECISION,
+
+    CONSTRAINT "AccountHistory_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
 CREATE TABLE "Transaction" (
     "id" SERIAL NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,

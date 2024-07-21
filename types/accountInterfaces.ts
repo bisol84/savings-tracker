@@ -21,3 +21,8 @@ export interface Account {
 export interface AccountTransactionsProps {
   accountID: number;
 }
+
+export interface MonthlyData {
+  month: string;
+  [key: string]: number | string | null;
+}

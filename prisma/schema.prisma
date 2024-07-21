@@ -25,6 +25,13 @@ model Account {
   transactions Transaction[]
 }
 
+model AccountHistory {
+  id        Int       @id @default(autoincrement())
+  idAccount Int
+  updatedAt DateTime? @updatedAt
+  actualBalance Float?
+}
+
 model Transaction {
   id    Int    @id @default(autoincrement())
   createdAt DateTime @default(now())
