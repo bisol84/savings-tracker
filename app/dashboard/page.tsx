@@ -4,7 +4,6 @@ const page = () => {
   return (
     <section className="p-3">
       <div>
-        test :
         <MonthlyChart />
       </div>
     </section>

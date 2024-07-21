@@ -12,27 +12,31 @@ import {
 const MonthlyChart = () => {
   const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
-  const { data, isLoading, error } = useSWR(
+  const { data: dataChart, error: dataChartError } = useSWR(
     "/api/v1/dashboard/MonthlyChart",
     fetcher
   );
 
-  if (!data) return <div>loading...</div>;
+  if (!dataChart) return <div>loading...</div>;
 
-  const chartConfig = {
-    compte01: {
-      label: "Compte 01 - 3a",
-      color: "#60a5fa",
-    },
-    compte02: {
-      label: "Compte 02 - 3a",
-      color: "#123123",
-    },
-  } satisfies ChartConfig;
+  const chartConfig = {} satisfies ChartConfig;
+  dataChart.forEach((chart) => {
+    chartConfig["t"] = {
+      label: chart.month,
+      color: "#909090",
+    };
+  });
+
+  // const chartConfig = {
+  //   compte01: {
+  //     label: dataChartConfig[0].name,
+  //     color: "#60a5fa",
+  //   },
+  // } satisfies ChartConfig;
 
   return (
     <ChartContainer config={chartConfig} className="min-h-[200px] w-full">
-      <BarChart accessibilityLayer data={data}>
+      <BarChart accessibilityLayer data={dataChart}>
         <Bar dataKey="compte01" fill="var(--color-compte01)" radius={4} />
         <Bar dataKey="compte02" fill="var(--color-compte02)" radius={4} />
         <ChartLegend content={<ChartLegendContent />} />

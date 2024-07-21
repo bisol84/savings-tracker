@@ -12,7 +12,7 @@ const AccountTypeSelect = () => {
       <SelectTrigger>
         <SelectValue placeholder="Type" />
       </SelectTrigger>
-      <SelectContent>
+      <SelectContent className="bg-white">
         <SelectItem value="2p">2ème pilier</SelectItem>
         <SelectItem value="3a">3ème pilier A</SelectItem>
         <SelectItem value="3b">3ème pilier B</SelectItem>
