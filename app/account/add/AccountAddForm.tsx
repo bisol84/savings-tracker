@@ -4,7 +4,7 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import AccountTypeSelect from "./AccountTypeSelect";
-import { FormEvent } from "react";
+import { useState, FormEvent } from "react";
 import { useRouter } from "next/navigation";
 
 const handleForm = async (
@@ -26,6 +26,7 @@ const handleForm = async (
 
 const AccountAddForm = () => {
   const router = useRouter();
+  const [accountType, setAccountType] = useState("");
 
   return (
     <form action={"/api/v1/account"} onSubmit={(e) => handleForm(e, router)}>
@@ -33,7 +34,15 @@ const AccountAddForm = () => {
         <Label htmlFor="name">Nom</Label>
         <Input type="text" name="name" placeholder="Nom" />
         <Label htmlFor="type">Type de compte</Label>
-        <AccountTypeSelect />
+        <AccountTypeSelect onChange={setAccountType} />
+        {accountType == "stock" && (
+          <>
+            <Label htmlFor="stockCode">Code Bourse</Label>
+            <Input type="text" name="stockCode" />
+            <Label htmlFor="stockNumber">Nombre</Label>
+            <Input type="number" name="stockNumber" placeholder="0" />
+          </>
+        )}
         <Label htmlFor="initial_balance">Montant initial</Label>
         <Input type="number" name="initial_balance" placeholder="0" />
         <Button variant="outline" type="submit">

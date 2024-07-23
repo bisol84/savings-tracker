@@ -6,9 +6,9 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-const AccountTypeSelect = () => {
+const AccountTypeSelect = ({ onChange }) => {
   return (
-    <Select name="type">
+    <Select name="type" onValueChange={onChange}>
       <SelectTrigger>
         <SelectValue placeholder="Type" />
       </SelectTrigger>
@@ -16,8 +16,9 @@ const AccountTypeSelect = () => {
         <SelectItem value="2p">2ème pilier</SelectItem>
         <SelectItem value="3a">3ème pilier A</SelectItem>
         <SelectItem value="3b">3ème pilier B</SelectItem>
-        <SelectItem value="bourse">Bourse</SelectItem>
+        <SelectItem value="stock">Bourse</SelectItem>
         <SelectItem value="crypto">Crypto</SelectItem>
+        <SelectItem value="bank">Compte bancaire</SelectItem>
       </SelectContent>
     </Select>
   );
