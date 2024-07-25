@@ -16,6 +16,8 @@ export interface Account {
   createdAt: Date;
   updatedAt: Date;
   name: string;
+  number: number;
+  symbol: string;
   type: string;
   status: boolean;
   initialBalance: number;
