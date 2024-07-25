@@ -23,11 +23,13 @@ const AccountCard = ({ account, handleDelete }: AccountCardProps) => {
       </CardContent>
       <CardFooter className="flex flex-col w-full">
         <div className="flex justify-between w-full">
-          <div className="font-bold">{account.createdAt.toString()}</div>
+          <div className="font-bold">Créé : {account.createdAt.toString()}</div>
           <div>{account.initialBalance} CHF</div>
         </div>
         <div className="flex justify-between w-full">
-          <div className="font-bold">{account.updatedAt.toString()}</div>
+          <div className="font-bold">
+            Récent : {account.updatedAt.toString()}
+          </div>
           <div>{account.actualBalance} CHF</div>
         </div>
         <div className="flex w-full gap-3 justify-between my-3">
