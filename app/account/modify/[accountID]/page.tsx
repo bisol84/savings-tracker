@@ -1,11 +1,14 @@
 import AccountModifyForm from "./AccountModifyForm";
 
 export const dynamic = "force-dynamic";
-export const revalidate = 0;
+export const revalidate = 5;
 
 async function getAccount(accountID: string) {
-  const res = await fetch(process.env.URL + `/api/v1/account/${accountID}`, {});
-  return res.json();
+  const response = await fetch(
+    process.env.URL + `/api/v1/account/${accountID}`,
+    {}
+  );
+  return response.json();
 }
 
 const page = async ({ params }: { params: { accountID: string } }) => {
