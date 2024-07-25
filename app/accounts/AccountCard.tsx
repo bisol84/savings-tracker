@@ -9,6 +9,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { AccountCardProps } from "@/types/accountInterfaces";
 import AccountTransactionsHistory from "./AccountTransactionsHistory";
+import { MdOutlineUpdate, MdOutlineCreateNewFolder } from "react-icons/md";
 import Link from "next/link";
 
 const AccountCard = ({ account, handleDelete }: AccountCardProps) => {
@@ -35,12 +36,20 @@ const AccountCard = ({ account, handleDelete }: AccountCardProps) => {
           </>
         )}
         <div className="flex justify-between w-full">
-          <div className="font-bold">Créé : {account.createdAt.toString()}</div>
+          <div className="font-bold">
+            <p className="flex items-center">
+              <MdOutlineCreateNewFolder />{" "}
+              <span className="ml-2">{account.createdAt.toString()}</span>
+            </p>
+          </div>
           <div>{account.initialBalance} CHF</div>
         </div>
         <div className="flex justify-between w-full">
           <div className="font-bold">
-            Récent : {account.updatedAt.toString()}
+            <p className="flex items-center">
+              <MdOutlineUpdate />{" "}
+              <span className="ml-2">{account.updatedAt.toString()}</span>
+            </p>
           </div>
           <div>{account.actualBalance} CHF</div>
         </div>
