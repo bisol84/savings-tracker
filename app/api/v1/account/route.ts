@@ -9,12 +9,15 @@ export async function POST(req: NextRequest, res: NextResponse) {
     const result = await prisma.account.create({
       data: {
         name: data.get("name") as string,
+        symbol: data.get("symbol") as string,
+        number: Number(data.get("number")),
         initialBalance: Number(data.get("initial_balance")),
         type: data.get("type") as string,
         createdAt: new Date(),
         status: true,
       },
     });
+    console.log(result);
 
     return Response.json(result);
   } catch (error) {

@@ -3,6 +3,10 @@ export interface AccountCardProps {
   handleDelete: (id: number) => Promise<void>;
 }
 
+export interface AccountTypeSelectProps {
+  onChange: (id: string) => Promise<void>;
+}
+
 export interface AccountModifyProps {
   account: Account;
 }

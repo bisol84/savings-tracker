@@ -5,6 +5,8 @@ CREATE TABLE "Account" (
     "updatedAt" TIMESTAMP(3),
     "name" TEXT NOT NULL,
     "type" TEXT NOT NULL,
+    "symbol" TEXT,
+    "number" INTEGER,
     "status" BOOLEAN NOT NULL,
     "initialBalance" DOUBLE PRECISION NOT NULL,
     "actualBalance" DOUBLE PRECISION,

@@ -5,8 +5,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { AccountTypeSelectProps } from "@/types/accountInterfaces";
 
-const AccountTypeSelect = ({ onChange }) => {
+const AccountTypeSelect = ({ onChange }: AccountTypeSelectProps) => {
   return (
     <Select name="type" onValueChange={onChange}>
       <SelectTrigger>
