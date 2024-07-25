@@ -22,6 +22,18 @@ const AccountCard = ({ account, handleDelete }: AccountCardProps) => {
         <AccountTransactionsHistory accountID={account.id} />
       </CardContent>
       <CardFooter className="flex flex-col w-full">
+        {account.symbol != null && (
+          <>
+            <div className="flex justify-between w-full">
+              <div>Symbole</div>
+              <div>{account.symbol}</div>
+            </div>
+            <div className="flex justify-between w-full">
+              <div>Nombre</div>
+              <div>{account.number}</div>
+            </div>
+          </>
+        )}
         <div className="flex justify-between w-full">
           <div className="font-bold">Créé : {account.createdAt.toString()}</div>
           <div>{account.initialBalance} CHF</div>
