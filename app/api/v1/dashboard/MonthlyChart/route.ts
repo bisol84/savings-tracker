@@ -51,7 +51,6 @@ export async function GET(req: NextRequest, res: NextResponse) {
   }
 
   const chartData = Object.values(groupedData);
-  console.log(chartData);
 
   return NextResponse.json(chartData);
 }

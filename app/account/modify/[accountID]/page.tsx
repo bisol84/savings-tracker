@@ -5,7 +5,6 @@ export const revalidate = 0;
 
 async function getAccount(accountID: string) {
   const res = await fetch(process.env.URL + `/api/v1/account/${accountID}`, {});
-  console.log("API : " + res.json);
   return res.json();
 }
 

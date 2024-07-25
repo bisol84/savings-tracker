@@ -58,11 +58,16 @@ export async function DELETE(
   { params }: { params: { accountID: string } }
 ) {
   const pAccountId = parseInt(params.accountID);
-  const result = await prisma.account.delete({
+  const resultAccount = await prisma.account.delete({
     where: {
       id: pAccountId,
     },
   });
+  const resultAccountHistory = await prisma.accountHistory.deleteMany({
+    where: {
+      idAccount: pAccountId,
+    },
+  });
 
-  return Response.json(result);
+  return Response.json(resultAccount);
 }
